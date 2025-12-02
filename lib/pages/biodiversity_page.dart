@@ -1,4 +1,3 @@
-// lib/pages/biodiversity_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../widgets/world_health_meter.dart';

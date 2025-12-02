@@ -1,4 +1,3 @@
-// lib/main.dart
 import 'package:flutter/material.dart';
 import 'game_state.dart';
 import 'pages/welcome_page.dart';

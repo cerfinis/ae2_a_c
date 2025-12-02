@@ -1,4 +1,3 @@
-// lib/widgets/companion_portrait.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 

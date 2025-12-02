@@ -1,4 +1,3 @@
-// lib/pages/forest_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../widgets/world_health_meter.dart';
@@ -62,11 +61,11 @@ class ForestPage extends StatelessWidget {
     final gameState = GameStateProvider.of(context);
     gameState.wrongChoice();
     if (gameState.wrongChoiceStreak >= 3) {
-      gameState.speak('Too many wrong choices… Let’s start again!');
+      gameState.speak('Too many wrong choices… Let\'s start again!');
       gameState.resetProgress();
       Future.delayed(const Duration(seconds: 2), () => Navigator.of(context).pushReplacementNamed('/welcome'));
     } else {
-      gameState.speak('Oops! Trees give us oxygen. Let’s be kinder to forests!');
+      gameState.speak('Oops! Trees give us oxygen. Let\'s be kinder to forests!');
     }
   }
 }

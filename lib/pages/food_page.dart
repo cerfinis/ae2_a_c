@@ -1,4 +1,3 @@
-// lib/pages/food_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../widgets/world_health_meter.dart';
@@ -54,7 +53,7 @@ class FoodPage extends StatelessWidget {
   void _good(BuildContext context) {
     final gameState = GameStateProvider.of(context);
     gameState.earnBadge('food');
-    gameState.speak('Wiggle-wonderful! Healthy soil means yummy food for everyone!');
+    gameState.speak('Wiggle wonderful! Healthy soil means yummy food for everyone!');
     Future.delayed(const Duration(seconds: 2), () => Navigator.of(context).pushReplacementNamed('/biodiversity'));
   }
 
@@ -62,11 +61,11 @@ class FoodPage extends StatelessWidget {
     final gameState = GameStateProvider.of(context);
     gameState.wrongChoice();
     if (gameState.wrongChoiceStreak >= 3) {
-      gameState.speak('Too many wrong choices… Let’s start again!');
+      gameState.speak('Too many wrong choices… Let\'s start again!');
       gameState.resetProgress();
       Future.delayed(const Duration(seconds: 2), () => Navigator.of(context).pushReplacementNamed('/welcome'));
     } else {
-      gameState.speak('Wasting food is sad. Let’s feed Wiggles instead!');
+      gameState.speak('Wasting food is sad. Let\'s feed Wiggles instead!');
     }
   }
 }

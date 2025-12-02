@@ -1,4 +1,3 @@
-// lib/pages/marine_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../widgets/world_health_meter.dart';
@@ -20,37 +19,30 @@ Widget build(BuildContext context) {
     backgroundColor: Colors.grey[200],
     body: Column(
       children: [
-        // ORANGE TOP BAR - World Health
         Container(
           height: 100,
           color: const Color(0xFFFF5722),
           child: const WorldHealthMeter(),
         ),
-
-        // MAIN CONTENT - Pink left, Green right, Yellow text
+        // main content here
         Expanded(
           child: Row(
             children: [
-              // PINK LEFT - Badges
               Container(
                 width: 100,
                 color: const Color(0xFFE91E63),
                 child: const BadgeDisplay(),
               ),
-
-              // CENTER - Question + Choices
               Expanded(
                 child: Column(
                   children: [
                     const SizedBox(height: 30),
-                    // Yellow title
                     Text(
                       'Save the Oceans!',
                       style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold, color: Colors.yellow),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 40),
-                    // Question text
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
@@ -60,7 +52,6 @@ Widget build(BuildContext context) {
                       ),
                     ),
                     const Spacer(),
-                    // Buttons
                     ChoiceButton(text: 'Pick up the plastic and recycle it', onPressed: () => _good(context)),
                     const SizedBox(height: 15),
                     ChoiceButton(text: 'Use reusable bags', onPressed: () => _good(context)),
@@ -70,8 +61,6 @@ Widget build(BuildContext context) {
                   ],
                 ),
               ),
-
-              // GREEN RIGHT - Companion
               Container(
                 width: 100,
                 color: const Color(0xFF4CAF50),
@@ -80,8 +69,6 @@ Widget build(BuildContext context) {
             ],
           ),
         ),
-
-        // PURPLE BOTTOM - Dialogue
         Container(
           height: 180,
           color: const Color(0xFF9C27B0),
@@ -103,11 +90,11 @@ Widget build(BuildContext context) {
     final gameState = GameStateProvider.of(context);
     gameState.wrongChoice();
     if (gameState.wrongChoiceStreak >= 3) {
-      gameState.speak('Too many wrong choices… Let’s start again!');
+      gameState.speak('Too many wrong choices… Let\'s start again!');
       gameState.resetProgress();
       Future.delayed(const Duration(seconds: 2), () => Navigator.of(context).pushReplacementNamed('/welcome'));
     } else {
-      gameState.speak('Oh no! Plastic hurts turtles and fish. Let’s try again!');
+      gameState.speak('Oh no! Plastic hurts turtles and fish. Let\'s try again!');
     }
   }
 }

@@ -1,4 +1,3 @@
-// lib/widgets/world_health_meter.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 

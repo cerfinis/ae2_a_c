@@ -54,7 +54,7 @@ class WaterPage extends StatelessWidget {
   void _good(BuildContext context) {
     final gameState = GameStateProvider.of(context);
     gameState.earnBadge('water');
-    gameState.speak('Ribbit-tastic! Felix has plenty of water to swim now!');
+    gameState.speak('Ribbittastic! Felix has plenty of water to swim now!');
     Future.delayed(const Duration(seconds: 2), () => Navigator.of(context).pushReplacementNamed('/food'));
   }
 
@@ -62,7 +62,7 @@ class WaterPage extends StatelessWidget {
     final gameState = GameStateProvider.of(context);
     gameState.wrongChoice();
     if (gameState.wrongChoiceStreak >= 3) {
-      gameState.speak('Too many wrong choices… Let’s start again!');
+      gameState.speak('Too many wrong choices… Let\'s start again!');
       gameState.resetProgress();
       Future.delayed(const Duration(seconds: 2), () => Navigator.of(context).pushReplacementNamed('/welcome'));
     } else {

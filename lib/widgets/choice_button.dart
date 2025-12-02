@@ -1,4 +1,3 @@
-// lib/widgets/choice_button.dart
 import 'package:flutter/material.dart';
 
 class ChoiceButton extends StatelessWidget {

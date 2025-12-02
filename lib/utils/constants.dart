@@ -1,14 +1,11 @@
-// lib/utils/constants.dart
 import 'package:flutter/material.dart';
 
-/// All colours exactly matching your storyboard PDF
 const Color orangeHealthBar = Color(0xFFFF5722);
 const Color pinkBadges = Color(0xFFE91E63);
 const Color greenCompanion = Color(0xFF4CAF50);
 const Color purpleDialogue = Color(0xFF9C27B0);
 const Color yellowText = Colors.yellow;
 
-/// Badge → asset mapping (your exact filenames)
 const Map<String, String> badgeAssets = {
   'marine': 'assets/badge_marine.png',
   'forest': 'assets/badge_forest.png',
@@ -17,7 +14,6 @@ const Map<String, String> badgeAssets = {
   'biodiversity': 'assets/badge_biodiversity.png',
 };
 
-/// Companion → asset mapping (your exact filenames)
 const Map<String, String> companionAssets = {
   'captain': 'assets/captain_green.png',
   'turtle': 'assets/turtle.png',
@@ -27,7 +23,6 @@ const Map<String, String> companionAssets = {
   'bird': 'assets/bird.png',
 };
 
-/// Scenario order – used for progression
 const List<String> scenarioOrder = [
   'marine',
   'forest',
@@ -36,7 +31,6 @@ const List<String> scenarioOrder = [
   'biodiversity',
 ];
 
-/// All scenario data in one place (optional – we’re not using it now but it’s clean)
 final Map<String, Map<String, String>> scenarioData = {
   'marine': {
     'title': 'Save the Oceans!',

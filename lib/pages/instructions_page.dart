@@ -1,4 +1,3 @@
-// lib/pages/instructions_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 
@@ -29,17 +28,15 @@ class InstructionsPage extends StatelessWidget {
                     child: Text('''
 The world is getting sick because of:
 
-• Plastic in the oceans
-• Cutting down trees
-• Wasting water
-• Throwing away food
-• Not caring for animals and plants
+Plastic in the oceans
+Cutting down trees
+Wasting water
+Throwing away food
+Not caring for animals and plants
 
 You can help me save the world!
 
-Choose the GOOD options (A or B) to earn badges and heal the planet.
-If you pick C, you can try again!
-(But if you pick C three times, we start over!)
+Choose the good options, and help save the planet!!
                     ''', style: TextStyle(fontSize: 32, color: Colors.white, height: 1.8), textAlign: TextAlign.center),
                   ),
                 ),

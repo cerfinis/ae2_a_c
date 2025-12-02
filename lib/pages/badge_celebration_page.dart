@@ -1,4 +1,3 @@
-// lib/pages/badge_celebration_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 
@@ -18,7 +17,7 @@ class _BadgeCelebrationPageState extends State<BadgeCelebrationPage> with Single
     _controller = AnimationController(vsync: this, duration: const Duration(seconds: 8))..forward();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      GameStateProvider.of(context).speak("WOW! You collected ALL the badges! You’re a true Eco Hero!");
+      GameStateProvider.of(context).speak("WOW! You collected ALL the badges! You’re a true hdfo!");
     });
   }
 

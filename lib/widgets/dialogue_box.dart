@@ -1,4 +1,3 @@
-// lib/widgets/dialogue_box.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 

@@ -1,4 +1,3 @@
-// lib/widgets/badge_display.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 
