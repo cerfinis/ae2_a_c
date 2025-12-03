@@ -7,20 +7,26 @@ class DialogueBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gameState = GameStateProvider.of(context);
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
     return Container(
-      height: 200,
-      color: const Color(0xFF9C27B0),
+      height: h * 0.18,
+      color: const Color(0xFF4E342E),
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text('Message from your friend', style: TextStyle(fontSize: 32, color: Colors.white)),
+          Text('Message from your friend', style: TextStyle(fontSize: w * 0.05, color: Colors.white)),
           const SizedBox(height: 15),
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
               child: SingleChildScrollView(
-                child: Text(gameState.lastDialogue, style: const TextStyle(fontSize: 30), textAlign: TextAlign.center),
+                child: Text(
+                  gameState.lastDialogue,
+                  style: TextStyle(fontSize: w * 0.030),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),

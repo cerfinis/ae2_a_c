@@ -8,7 +8,6 @@ import 'pages/water_page.dart';
 import 'pages/food_page.dart';
 import 'pages/biodiversity_page.dart';
 import 'pages/badge_celebration_page.dart';
-import 'pages/finale_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +35,6 @@ class MyApp extends StatelessWidget {
         '/food': (_) => GameStateProvider(gameState: gameState, child: const FoodPage()),
         '/biodiversity': (_) => GameStateProvider(gameState: gameState, child: const BiodiversityPage()),
         '/badge_celebration': (_) => GameStateProvider(gameState: gameState, child: const BadgeCelebrationPage()),
-        '/finale': (_) => GameStateProvider(gameState: gameState, child: const FinalePage()),
       },
     );
   }

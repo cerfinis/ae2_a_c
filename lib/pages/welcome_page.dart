@@ -1,4 +1,3 @@
-// lib/pages/welcome_page.dart
 import 'package:flutter/material.dart';
 import '../main.dart';
 
@@ -7,6 +6,9 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final w = size.width;
+    final h = size.height;
     final gameState = GameStateProvider.of(context);
     gameState.resetProgress();
     gameState.speak("Hello! I am Captain Green! The world needs your help!");
@@ -14,30 +16,61 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/welcome.png', fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+          Image.asset(
+            'assets/welcome.png',
+            fit: BoxFit.cover, 
+            width: double.infinity, 
+            height: double.infinity),
           Container(color: Colors.black.withOpacity(0.4)),
           SafeArea(
             child: Column(
               children: [
-                const Spacer(flex: 3),
-                const Text(
-                  'Captain Green\nSaves the World!',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 72, fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                const SizedBox(height: 60),
-                Image.asset('assets/captain_green.png', height: 280),
-                const Spacer(flex: 2),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pushNamed('/instructions'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 50),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80)),
+                // Centered title at top
+                Padding(
+                  padding: EdgeInsets.only(top: h * 0.05),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                      'Captain Green\nSaves the World!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: w * 0.10,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                        shadows: const [
+                          Shadow(
+                            blurRadius: 6,
+                            color: Colors.black54,
+                            offset: Offset(2, 2),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  child: const Text('START', style: TextStyle(fontSize: 72, color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
-                const SizedBox(height: 100),
+                Spacer(),
+                // Centered START button
+                Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: h * 0.06),
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.of(context).pushNamed('/instructions'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: w * 0.12, vertical: h * 0.02),
+                      ),
+                      child: Text(
+                        'START',
+                        style: TextStyle(
+                          fontSize: w * 0.07,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

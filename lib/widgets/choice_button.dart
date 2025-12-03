@@ -8,16 +8,22 @@ class ChoiceButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: w * 0.0001, vertical: h * 0.001),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: isGood ? Colors.blue : Colors.red,
-          padding: const EdgeInsets.all(25),
+          padding: EdgeInsets.symmetric(vertical: h * 0.01, horizontal: w * 0.1),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         ),
-        child: Text(text, style: const TextStyle(fontSize: 28, color: Colors.white), textAlign: TextAlign.center),
+        child: Text(
+          text,
+          style: TextStyle(fontSize: w * 0.045, color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

@@ -8,24 +8,34 @@ class InstructionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final gameState = GameStateProvider.of(context);
     gameState.goTo('/instructions', companion: 'captain');
+    final size = MediaQuery.of(context).size;
+    final w = size.width;
+    final h = size.height;
 
     return Scaffold(
       body: Stack(
         children: [
           Image.asset('assets/instructions.png', fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-          Container(color: Colors.black.withOpacity(0.7)),
+          Container(color: Colors.black.withOpacity(0.6)),
           SafeArea(
             child: Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 40),
-                  child: Text('Hello! I am Captain Green!', style: TextStyle(fontSize: 56, color: Colors.white, fontWeight: FontWeight.bold)),
+                Padding(
+                  padding: EdgeInsets.only(top: h * 0.04),
+                  child: Text('Hello! I am Captain Green!', textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: w * 0.08,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 40),
-                const Expanded(
+                SizedBox(height: h * 0.02),
+                Expanded(
                   child: SingleChildScrollView(
-                    padding: EdgeInsets.all(30),
-                    child: Text('''
+                    padding: EdgeInsets.symmetric(horizontal: w * 0.08, vertical: h * 0.02),
+                    child: const Text(
+                      '''
 The world is getting sick because of:
 
 Plastic in the oceans
@@ -37,7 +47,14 @@ Not caring for animals and plants
 You can help me save the world!
 
 Choose the good options, and help save the planet!!
-                    ''', style: TextStyle(fontSize: 32, color: Colors.white, height: 1.8), textAlign: TextAlign.center),
+                      ''',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        height: 1.6,
+                      ),
+                    ),
                   ),
                 ),
                 ElevatedButton(
@@ -46,12 +63,21 @@ Choose the good options, and help save the planet!!
                     Navigator.of(context).pushNamed('/marine');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 40),
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: w * 0.12, vertical: h * 0.02),
                   ),
-                  child: const Text('BEGIN ADVENTURE!', style: TextStyle(fontSize: 48, color: Colors.white)),
+                  child: Text(
+                    'BEGIN ADVENTURE!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: w * 0.055,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 80),
+                SizedBox(height: h * 0.03),
               ],
             ),
           ),

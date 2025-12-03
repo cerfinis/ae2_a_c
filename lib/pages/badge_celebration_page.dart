@@ -29,37 +29,47 @@ class _BadgeCelebrationPageState extends State<BadgeCelebrationPage> with Single
 
   @override
   Widget build(BuildContext context) {
+    final double w = MediaQuery.of(context).size.width;
+    final double h = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Colors.lightGreen[50],
+      backgroundColor: Colors.yellow[50],
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 60),
-            const Text('CONGRATULATIONS!', style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold, color: Colors.green)),
-            const SizedBox(height: 20),
-            const Text('You collected every badge!', style: TextStyle(fontSize: 40)),
-            const SizedBox(height: 60),
+            SizedBox(height: h * 0.07),
+            Text('CONGRATULATIONS!', style: TextStyle(fontSize: w * 0.075, fontWeight: FontWeight.bold,color: Colors.purple[800],),),
+            SizedBox(height: h * 0.03),
+            Text('You collected every badge!', style: TextStyle(fontSize: w * 0.07,),),
+            SizedBox(height: h * 0.07),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 3,
-                padding: const EdgeInsets.all(30),
-                children: ['marine', 'forest', 'water', 'food', 'biodiversity'].map((id) =>
+                padding: EdgeInsets.all(w * 0.05),
+                children: ['marine', 'forest', 'water', 'food', 'biodiversity'].map((id) => 
                   ScaleTransition(
-                    scale: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut)),
+                    scale: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut,),),
                     child: Image.asset('assets/badge_$id.png'),
                   ),
                 ).toList(),
               ),
             ),
-            const Padding(padding: EdgeInsets.all(30), child: Text('Captain Green and all the animals thank you!\nThe world is saved because of YOU!', textAlign: TextAlign.center, style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.blueAccent))),
-            const SizedBox(height: 40),
+            Padding(
+              padding: EdgeInsets.all(w * 0.07),
+              child: Text('Captain Green and all the animals thank you!\nThe world is saved because of YOU!',
+                textAlign: TextAlign.center,
+                style: TextStyle( fontSize: w * 0.06, fontWeight: FontWeight.bold, color: Colors.purple,
+                ),
+              ),
+            ),
+            SizedBox(height: h * 0.05),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.lightGreen,
         onPressed: () => Navigator.of(context).pushReplacementNamed('/welcome'),
-        child: const Icon(Icons.arrow_forward, size: 40),
+        child: Icon(Icons.arrow_forward, size: w * 0.08),
       ),
     );
   }

@@ -11,70 +11,63 @@ class MarinePage extends StatelessWidget {
 
   @override
 Widget build(BuildContext context) {
+  final size = MediaQuery.of(context).size;
+  final w = size.width;
+  final h = size.height;
   final gameState = GameStateProvider.of(context);
-  gameState.goTo('/marine', companion: 'turtle'); // change per page
+  gameState.goTo('/marine', companion: 'turtle'); 
   gameState.speak("Help me, Tallulah the Turtle is crying because of plastic!");
 
   return Scaffold(
-    backgroundColor: Colors.grey[200],
-    body: Column(
+    backgroundColor: const Color(0xFFE3F7FF),
+    body: SafeArea(
+      child: Column(
       children: [
-        Container(
-          height: 100,
-          color: const Color(0xFFFF5722),
-          child: const WorldHealthMeter(),
-        ),
-        // main content here
+        Container(height: h * 0.08, color: const Color(0xFFE0F7FA), child: const WorldHealthMeter(),),
         Expanded(
           child: Row(
             children: [
-              Container(
-                width: 100,
-                color: const Color(0xFFE91E63),
-                child: const BadgeDisplay(),
-              ),
+              Container(width: w * 0.12, color: const Color(0xFFE3F7FF), child: const BadgeDisplay(),),
               Expanded(
-                child: Column(
-                  children: [
-                    const SizedBox(height: 30),
-                    Text(
-                      'Save the Oceans!',
-                      style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold, color: Colors.yellow),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 40),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'Tallulah the Turtle is sad because the beach is full of plastic!\nWhat should you do?',
-                        style: TextStyle(fontSize: 26, height: 1.6),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const Spacer(),
-                    ChoiceButton(text: 'Pick up the plastic and recycle it', onPressed: () => _good(context)),
-                    const SizedBox(height: 15),
-                    ChoiceButton(text: 'Use reusable bags', onPressed: () => _good(context)),
-                    const SizedBox(height: 15),
-                    ChoiceButton(text: 'Leave the plastic', isGood: false, onPressed: () => _bad(context)),
-                    const SizedBox(height: 40),
-                  ],
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(vertical: h * 0.02),
+                  child: Column( mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: h * 0.02),
+                      Text('Save the Oceans!', style: TextStyle(fontSize: w * 0.054, fontWeight: FontWeight.bold, color: const Color(0xFF006064),), textAlign: TextAlign.center,),
+                      SizedBox(height: h * 0.03),
+                      Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Text('Tallulah the Turtle is sad because the beach is full of plastic!\nWhat should you do?', style: TextStyle(fontSize: w * 0.05,height: 1.6,), textAlign: TextAlign.center,),),
+                      SizedBox(height: h * 0.03),
+                      SizedBox(width: w * 0.65,
+                        child: ChoiceButton(text: 'Pick up the plastic and recycle it', onPressed: () => _good(context),),),
+                      const SizedBox(height: 15),
+                      SizedBox(width: w * 0.65,
+                        child: ChoiceButton(text: 'Use reusable bags', onPressed: () => _good(context),),),
+                      const SizedBox(height: 15),
+                      SizedBox(width: w * 0.65,
+                        child: ChoiceButton(text: 'Leave the plastic', isGood: false, onPressed: () => _bad(context), ),),
+                      SizedBox(height: h * 0.03),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: 100,
-                color: const Color(0xFF4CAF50),
-                child: const CompanionPortrait(),
+              SizedBox.shrink(),
+            ],
+          ),
+        ),
+        Container(height: h * 0.18, color: const Color(0xFF1B5E20),
+          child: Row(
+            children: [
+              SizedBox( width: w * 0.25,child: const CompanionPortrait(),),
+              Expanded(
+                child: DialogueBox(),
               ),
             ],
           ),
         ),
-        Container(
-          height: 180,
-          color: const Color(0xFF9C27B0),
-          child: const DialogueBox(),
-        ),
       ],
+      ),
     ),
   );
 }

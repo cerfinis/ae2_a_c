@@ -7,24 +7,39 @@ class WorldHealthMeter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gameState = GameStateProvider.of(context);
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
     return Container(
-      height: 100,
-      color: const Color(0xFFFF5722),
+      height: h * 0.12,
+      color: const Color(0xFFE0F7FA),
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          const Text('World Health', style: TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold)),
+          Text(
+            'World Health',
+            style: TextStyle(
+              fontSize: w * 0.025,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(width: 20),
           Expanded(
             child: LinearProgressIndicator(
               value: gameState.worldHealth / 100,
-              backgroundColor: Colors.white24,
-              valueColor: const AlwaysStoppedAnimation(Colors.lightGreenAccent),
+              backgroundColor: Colors.black,
+              valueColor: const AlwaysStoppedAnimation(Colors.green),
               minHeight: 30,
             ),
           ),
           const SizedBox(width: 20),
-          Text('${gameState.worldHealth}%', style: const TextStyle(fontSize: 48, color: Colors.white)),
+          Text(
+            '${gameState.worldHealth}%',
+            style: TextStyle(
+              fontSize: w * 0.04,
+              color: Colors.black,
+            ),
+          ),
         ],
       ),
     );
